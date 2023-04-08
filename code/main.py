@@ -2,7 +2,7 @@ import models.train_model as model
 import preprocessing.standardization.preprocessing as pp
 import predictions.predictions as p
 
-production = True
+production = False
 
 def main_train():
     X_train, X_test, y_train, y_test, scaler = pp.preprocess_raw_data() # preprocess and train algorithm to generate model

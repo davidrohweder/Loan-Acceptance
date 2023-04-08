@@ -21,6 +21,6 @@ def train_model(X_train, X_test, y_train, y_test, scaler):
     test_loss, test_accuracy = model.evaluate(X_test, y_test)
     print(f'Test accuracy: {test_accuracy}')
 
-    model.save('loan_prediction_model.h5')
-    with open('scaler.pkl', 'wb') as f:
+    model.save('./models/loan_prediction_model.h5')
+    with open('./models/scaler.pkl', 'wb') as f:
         pickle.dump(scaler, f)

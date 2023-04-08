@@ -4,10 +4,10 @@ from sklearn.preprocessing import LabelEncoder
 import pickle
 
 def predict_new_data():
-    loaded_model = tf.keras.models.load_model('loan_prediction_model.h5')
+    loaded_model = tf.keras.models.load_model('./models/loan_prediction_model.h5')
 
     # Load the saved StandardScaler
-    with open('scaler.pkl', 'rb') as f:
+    with open('./models/scaler.pkl', 'rb') as f:
         loaded_scaler = pickle.load(f)
 
     # Load and preprocess the new data
