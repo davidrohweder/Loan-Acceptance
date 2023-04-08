@@ -10,5 +10,5 @@ def train_model(X_train, X_test, y_train, y_test, scaler):
     print(f'Test accuracy: {test_accuracy}, Test loss: {test_loss}') # is our model trash
 
     model.save('./models/loan_prediction_model.h5') # save our model
-    with open('./models/scaler.pkl', 'wb') as f: 
+    with open('./models/loan_prediction_scaler.pkl', 'wb') as f: 
         pickle.dump(scaler, f) # data the scalar data to the file
