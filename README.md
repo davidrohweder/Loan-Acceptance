@@ -20,6 +20,7 @@ To install the dependencies, run the following commands (NOTE: SKlearn has depen
 5. ``pip install joblib``
 6. ``pip install threadpoolctl``
 7. ``pip install -U scikit-learn``
+
 If you have Python version 3.9 or above, the Pickle module does not need to be installed. To check your current python version, you can do ``python --version``. If you have Python version 3.9 or below, you need to install the Pickle module with the following command: 
 8. ``pip install pickle``
 
