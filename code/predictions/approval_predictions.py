@@ -39,4 +39,5 @@ def predict_new_data(production=False, save=True):
 
     if save: # default save results to new csv file to see the data and the predicted results || used for input to sg2 model
         data['Predictions'] = binary_predictions
+        data['Raw_Predictions'] = predictions # will be used for 
         data.to_csv('./data/predicted_data.csv', index=False)
