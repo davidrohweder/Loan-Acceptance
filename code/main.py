@@ -10,7 +10,7 @@ def main_train():
     approval_model.train_model(X_train, X_test, y_train, y_test, scaler) # load model and weights and train on new data
 
 def main_production():
-    #a_p.predict_new_data()
+    a_p.predict_new_data()
     i_p.predict_new_data()
 
 def main():

@@ -1,6 +1,5 @@
 import pandas as pd
 
-
 def predict_new_data():
     data = pd.read_csv('./data/predicted_data.csv') # Load new data
     raw_predictions = data['Raw_Predictions']
@@ -23,8 +22,10 @@ def rbes_range(raw_predictions):
             rate_range = "Medium-High"
         elif rate <= 25 and rate > 20:
             rate_range = "High"
-        else: 
+        elif rate <= 50:
             rate_range = "Extremly High"
+        else: 
+            rate_range = "Denied"
 
         interest_rates.append(rate_range)
 
