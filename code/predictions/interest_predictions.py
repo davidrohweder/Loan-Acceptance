@@ -22,9 +22,9 @@ def rbes_range(raw_predictions):
             rate_range = "Medium-High"
         elif rate <= 25 and rate > 20:
             rate_range = "High"
-        elif rate <= 50:
+        elif rate > 25 and rate <= 50:
             rate_range = "Extremly High"
-        else: 
+        elif rate > 50: 
             rate_range = "Denied"
 
         interest_rates.append(rate_range)
