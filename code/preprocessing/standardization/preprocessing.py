@@ -21,7 +21,7 @@ def preprocess_raw_data():
     for col in categorical_columns:
         data[col].fillna(data[col].mode()[0], inplace=True)
 
-    measured_fields = data.drop(['Loan_ID', 'Loan_Status'], axis=1)  # Split data into features (X) and target (y)
+    measured_fields = data.drop(['Loan_ID', 'Loan_Status', 'Gender'], axis=1)  # Split data into features (X) and target (y)
     target_field = data['Loan_Status']
 
     # Split data into train and test sets

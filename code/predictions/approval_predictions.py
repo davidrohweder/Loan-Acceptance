@@ -13,10 +13,10 @@ def predict_new_data(production=False, save=True):
         data = pd.read_csv('./data/predict_data.csv') # Load and preprocess the new data
     else:
         data = pd.read_csv('./preprocessing/raw_data/training_data.csv') # Load and preprocess the old training data
-        data = data.drop(['Loan_Status'], axis=1, errors='ignore') # when testing we already have the csv, but dont need Loan_Status as we are predicing that using the trained model
+        data = data.drop(['Loan_Status', 'Gender'], axis=1, errors='ignore') # when testing we already have the csv, but dont need Loan_Status as we are predicing that using the trained model
 
     label_encoders = {}
-    categorical_columns = ['Gender', 'Married', 'Dependents', 'Education', 'Self_Employed', 'Property_Area'] # encoding categorical columns
+    categorical_columns = ['Married', 'Dependents', 'Education', 'Self_Employed', 'Property_Area'] # encoding categorical columns
 
     for col in categorical_columns:
         label_encoders[col] = LabelEncoder()
