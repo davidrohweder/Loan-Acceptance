@@ -4,8 +4,8 @@ import predictions.approval_predictions as a_p # predict loan approvals
 import predictions.interest_predictions as i_p # predict interest rate brackets
 import analysis.results_analysis as ans # do analytics on our results
 
-production = True # if false then we train the models, if true then we predict new data 
-analytics_mode = True # if true no predicting or training, only an analysis of the strcutured data
+production = False # if false then we train the models, if true then we predict new data 
+analytics_mode = False # if true no predicting or training, only an analysis of the strcutured data
 
 def main_train():
     X_train, X_test, y_train, y_test, scaler = pp.preprocess_raw_data() # preprocess and train algorithm to generate model
