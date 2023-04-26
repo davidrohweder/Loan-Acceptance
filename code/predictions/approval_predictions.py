@@ -32,9 +32,9 @@ def predict_new_data(production=False, save=True):
     for col in categorical_columns:
         data[col].fillna(data[col].mode()[0], inplace=True)
 
-    X_new = data.drop(['Loan_ID'], axis=1) # Loan id is not needed
-    X_new_scaled = loaded_scaler.transform(X_new)
-    predictions = loaded_model.predict(X_new_scaled) # get our predictions based on scaled model and {dataset}
+    cooked_data = data.drop(['Loan_ID'], axis=1) # Loan id is not needed
+    scaled_data = loaded_scaler.transform(cooked_data)
+    predictions = loaded_model.predict(scaled_data) # get our predictions based on scaled model and {dataset}
     binary_predictions = (predictions > 0.5).astype(int) # interger rounding to get either 1 or 0 i.e. denied or approved
 
     if save: # default save results to new csv file to see the data and the predicted results || used for input to sg2 model

@@ -29,3 +29,5 @@ def data_analysis(statistic=1):
         lower_bound = low_category_mean - margin_of_error
         upper_bound = low_category_mean + margin_of_error
         print(f"Confidence Intervals (95%): ({lower_bound}, {upper_bound})")
+
+    # todo more stats >:)
