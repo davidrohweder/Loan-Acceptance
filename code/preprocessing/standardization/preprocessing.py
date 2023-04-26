@@ -25,10 +25,9 @@ def preprocess_raw_data():
     target_field = data['Loan_Status']
 
     # Split data into train and test sets
-    X_train, X_test, y_train, y_test = train_test_split(measured_fields, target_field, test_size=0.2, random_state=42)
-
+    training_data, testing_data, training_outputs, testing_outputs = train_test_split(measured_fields, target_field, test_size=0.2, random_state=42)
     scaler = StandardScaler() # Scale the numerical features
-    X_train = scaler.fit_transform(X_train)
-    X_test = scaler.transform(X_test)
+    training_data = scaler.fit_transform(training_data)
+    testing_data = scaler.transform(testing_data)
 
-    return X_train, X_test, y_train, y_test, scaler
+    return training_data, training_outputs, testing_data, testing_outputs, scaler

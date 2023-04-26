@@ -8,8 +8,8 @@ production = False # if false then we train the models, if true then we predict 
 analytics_mode = False # if true no predicting or training, only an analysis of the strcutured data
 
 def main_train():
-    X_train, X_test, y_train, y_test, scaler = pp.preprocess_raw_data() # preprocess and train algorithm to generate model
-    approval_model.train_model(X_train, X_test, y_train, y_test, scaler) # load model and weights and train on new data
+    training_data, training_outputs, testing_data, testing_outputs, scaler = pp.preprocess_raw_data() # preprocess and train algorithm to generate model
+    approval_model.train_model(training_data, training_outputs, testing_data, testing_outputs, scaler) # load model and weights and train on new data
 
 def main_production():
     a_p.predict_new_data()
