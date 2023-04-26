@@ -1,9 +1,12 @@
 # Loan-Acceptance
 
-Try and make sure to use branches and merge to main when working to prevent conflicts
-
 ## Project Description 
-The Loan Acceptance project aims to use AI in order to select which candidates should be approved for a loan & what the loan interest rate should be based on various attributes. 
+The Loan Acceptance project aims to use AI in order to select which candidates should be approved for a loan & what the loan interest rate should be based on various attributes. This project aims to reduce the bias with a person-to-person meeting that a bank may have towards a particular person and go purely off the numbers in order to make a decision on whether or not the loan request should be approved. 
+
+## Goals, Envitonment, Adaptation
+
+## Design & Implementation
+
 
 ## Project Dependenceis 
 This project has the following dependencies: 
