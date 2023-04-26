@@ -42,7 +42,7 @@ def train_model(training_data, training_outputs, testing_data, testing_outputs, 
     BEST_FIRST_LAYER = 0
     BEST_SECOND_LAYER = 0
 
-    best_test_accuracy = 0.0
+    best_accuracy = 0.0
 
     # loop until the best test accuracy is achieved for the layer nodes
     for _ in range(OPTIMIZE_ITERS):
@@ -50,12 +50,12 @@ def train_model(training_data, training_outputs, testing_data, testing_outputs, 
         model = tf.keras.Sequential([tf.keras.layers.Dense(FIRST_LAYER, activation='relu', input_shape=(training_data.shape[1],)), tf.keras.layers.Dense(SECOND_LAYER, activation='relu'), tf.keras.layers.Dense(OUTPUT_LAYER, activation='sigmoid')]) # create / define the model || subject to changes
         model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy']) # compile
         model.fit(training_data, training_outputs, epochs=EPOCHS, batch_size=BATCH, validation_split=0.2, verbose=0) # train model
-        test_loss, test_accuracy = model.evaluate(testing_data, testing_outputs) # eval the model
-        print(f'Accuracy: {test_accuracy} and Loss: {test_loss}') # is our model trash
+        loss, accuracy = model.evaluate(testing_data, testing_outputs) # eval the model
+        print(f'Accuracy: {accuracy} and Loss: {loss}') # is our model trash
 
         # check if the current test accuracy is better than the previous best test accuracy
-        if test_accuracy > best_test_accuracy:
-            best_test_accuracy = test_accuracy
+        if accuracy > best_accuracy:
+            best_accuracy = accuracy
             BEST_FIRST_LAYER = FIRST_LAYER
             BEST_SECOND_LAYER = SECOND_LAYER
 
@@ -66,7 +66,7 @@ def train_model(training_data, training_outputs, testing_data, testing_outputs, 
         SECOND_LAYER += 1
 
         # break the loop if the test accuracy is already at its best
-        if best_test_accuracy == 1.0:
+        if best_accuracy == 1.0:
             break
 
     # loop until the best test accuracy is achieved for the batch size
@@ -75,27 +75,27 @@ def train_model(training_data, training_outputs, testing_data, testing_outputs, 
         model = tf.keras.Sequential([tf.keras.layers.Dense(FIRST_LAYER, activation='relu', input_shape=(training_data.shape[1],)), tf.keras.layers.Dense(SECOND_LAYER, activation='relu'), tf.keras.layers.Dense(OUTPUT_LAYER, activation='sigmoid')]) # create / define the model || subject to changes
         model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy']) # compile
         model.fit(training_data, training_outputs, epochs=EPOCHS, batch_size=BATCH, validation_split=0.2, verbose=0) # train model
-        test_loss, test_accuracy = model.evaluate(testing_data, testing_outputs) # eval the model
-        print(f'Accuracy: {test_accuracy} and Loss: {test_loss}') # is our model trash
+        loss, accuracy = model.evaluate(testing_data, testing_outputs) # eval the model
+        print(f'Accuracy: {accuracy} and Loss: {loss}') # is our model trash
 
         # check if the current test accuracy is better than the previous best test accuracy
-        if test_accuracy > best_test_accuracy:
-            best_test_accuracy = test_accuracy
+        if accuracy > best_accuracy:
+            best_accuracy = accuracy
             BEST_BATCH = BATCH
 
             # increase the batch size number
             BATCH += 1
 
         # break the loop if the test accuracy is already at its best
-        if best_test_accuracy == 1.0:
+        if best_accuracy == 1.0:
             break
 
     # Run our most optimized configuration
     model = tf.keras.Sequential([tf.keras.layers.Dense(BEST_FIRST_LAYER, activation='relu', input_shape=(training_data.shape[1],)), tf.keras.layers.Dense(BEST_SECOND_LAYER, activation='relu'), tf.keras.layers.Dense(OUTPUT_LAYER, activation='sigmoid')]) # create / define the model || subject to changes
     model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy']) # compile
     model.fit(training_data, training_outputs, epochs=EPOCHS, batch_size=BEST_BATCH, validation_split=0.2, verbose=0) # train model
-    test_loss, test_accuracy = model.evaluate(testing_data, testing_outputs) # eval the model
-    print(f'Accuracy: {test_accuracy} and Loss: {test_loss}') # is our model trash
+    loss, accuracy = model.evaluate(testing_data, testing_outputs) # eval the model
+    print(f'Accuracy: {accuracy} and Loss: {loss}') # is our model trash
 
     # ***********************************************************************************************************************
 
@@ -105,12 +105,12 @@ def train_model(training_data, training_outputs, testing_data, testing_outputs, 
         pickle.dump(scaler, f) # data the scalar data to the file
 
 
-# optimizer types "SDG", "RMSprop", "Adagrad"
-# activation types "tanh", "leakyRelu", "sigmoid", "relu"
+# optimizer types "SDG", "RMSprop", "Adagrad" --> everyone online says that the best is our boy adam and tests prove it
+# activation types "tanh", "leakyRelu", "sigmoid --hard", "relu --selu" 
 def lazy_train(training_data, training_outputs, testing_data, testing_outputs, BATCH=128, EPOCHS=1000,FIRST_LAYER=16,SECOND_LAYER=32, OUTPUT_LAYER=1):
-    model = tf.keras.Sequential([tf.keras.layers.Dense(FIRST_LAYER, activation='relu', input_shape=(training_data.shape[1],)), tf.keras.layers.Dense(OUTPUT_LAYER, activation='sigmoid')]) # create / define the model || subject to changes
-    model.compile(optimizer='SDG', loss='binary_crossentropy', metrics=['accuracy']) # compile
+    model = tf.keras.Sequential([tf.keras.layers.Dense(FIRST_LAYER, activation='tanh', input_shape=(training_data.shape[1],)), tf.keras.layers.Dense(OUTPUT_LAYER, activation='sigmoid')]) # create / define the model || subject to changes
+    model.compile(optimizer='adam', loss='binary_crossentropy', metrics=['accuracy']) # compile
     model.fit(training_data, training_outputs, epochs=EPOCHS, batch_size=BATCH, validation_split=0.2, verbose=0) # train model
-    test_loss, test_accuracy = model.evaluate(testing_data, testing_outputs) # eval the model
-    print(f'Accuracy: {test_accuracy} and Loss: {test_loss}') # is our model trash
+    loss, accuracy = model.evaluate(testing_data, testing_outputs) # eval the model
+    print(f'Accuracy: {accuracy} and Loss: {loss}') # is our model trash
     # lazy train function acheives the best randomized accuracy w/o training for a day 
