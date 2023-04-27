@@ -40,7 +40,7 @@ If you have Python version 3.9 or above, the Pickle module does not need to be i
 ### Initalization ###
 
 *How we reccomend*
-1. In the \code subdirectory run: ``python -m venv modelEnv``
+1. In the ``\code\`` subdirectory run: ``python -m venv modelEnv``
 2. In the that same directory run: ``modelEnv\Scripts\Activate.ps1``
 
 ### Running the application ###
