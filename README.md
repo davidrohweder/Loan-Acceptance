@@ -16,7 +16,7 @@ This project has the following dependencies:
 
 ## Installation Steps
 
-### Training the Model ###
+### Training the Model & Predicting Data ###
 To install the dependencies, run the following commands (NOTE: SKlearn has dependencies #3-6 and those need to be installed before intalling SKlearn): 
 1. ``pip install pandas``
 2. ``pip install tensorflow`` 
@@ -26,16 +26,14 @@ To install the dependencies, run the following commands (NOTE: SKlearn has depen
 6. ``pip install threadpoolctl``
 7. ``pip install -U scikit-learn``
 
-### Predicting Data ###
+If you have Python version 3.9 or above, the Pickle module does not need to be installed. To check your current python version, you can do ``python --version``. If you have Python version 3.9 or below, you need to install the Pickle module with the following command: 
+
+8. ``pip install pickle``
 
 ### Analyzing Data ### 
 1. ``pip install matplotlib``
 2. ``pip install seaborn`` 
 3. ``pip install scipy``
-
-If you have Python version 3.9 or above, the Pickle module does not need to be installed. To check your current python version, you can do ``python --version``. If you have Python version 3.9 or below, you need to install the Pickle module with the following command: 
-
-8. ``pip install pickle``
 
 ## Steps to Run 
 
@@ -53,12 +51,12 @@ Windows: ``python main.py``
 ### Augmenting Arguments ###
 
 1. Training the Model
-  * In the ``main.py`` on line 7 flip make sure ``production = True``
+  * In the ``main.py`` on line 7 make sure ``production = False``
   * In the ``main.py`` on line 8 flip make sure ``analytics_mode = False``
   * In the ``main.py`` on line 12 either add or do not add the argument ``lazy_mode=True`` depending on if a full model should be trained
 2. Predicting Data
   * In the ``main.py`` on line 8 flip make sure ``analytics_mode = True``
-  ans.data_analysis(2)
+  * In the ``approval_predictions.py`` on line 6 default arguments are presented and can be supplied in the main file when calling to chance the default configuration. Arguments include: production for files to use and save to save predicted results
 3. Analyzing Data
-  * In the ``main.py`` on line 7 flip make sure ``production = False``
+  * In the ``main.py`` on line 7 flip make sure ``production = True``
 
