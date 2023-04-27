@@ -14,7 +14,9 @@ This project has the following dependencies:
 2. Tensorflow
 3. Sklearn
 
-### Installation Steps
+## Installation Steps
+
+### Training the Model ###
 To install the dependencies, run the following commands (NOTE: SKlearn has dependencies #3-6 and those need to be installed before intalling SKlearn): 
 1. ``pip install pandas``
 2. ``pip install tensorflow`` 
@@ -24,19 +26,39 @@ To install the dependencies, run the following commands (NOTE: SKlearn has depen
 6. ``pip install threadpoolctl``
 7. ``pip install -U scikit-learn``
 
+### Predicting Data ###
+
+### Analyzing Data ### 
+1. ``pip install matplotlib``
+2. ``pip install seaborn`` 
+3. ``pip install scipy``
+
 If you have Python version 3.9 or above, the Pickle module does not need to be installed. To check your current python version, you can do ``python --version``. If you have Python version 3.9 or below, you need to install the Pickle module with the following command: 
 
 8. ``pip install pickle``
 
-### Steps to Run 
+## Steps to Run 
+
+### Initalization ###
 
 *How we reccomend*
 1. In the \code subdirectory run: ``python -m venv modelEnv``
 2. In the that same directory run: ``modelEnv\Scripts\Activate.ps1``
 
+### Running the application ###
 To run this project, open the terminal from the code subfolder. There, run the following command: 
 Ubuntu: ``$ python main.py``
 Windows: ``python main.py``
 
+### Augmenting Arguments ###
 
+1. Training the Model
+  * In the ``main.py`` on line 7 flip make sure ``production = True``
+  * In the ``main.py`` on line 8 flip make sure ``analytics_mode = False``
+  * In the ``main.py`` on line 12 either add or do not add the argument ``lazy_mode=True`` depending on if a full model should be trained
+2. Predicting Data
+  * In the ``main.py`` on line 8 flip make sure ``analytics_mode = True``
+  ans.data_analysis(2)
+3. Analyzing Data
+  * In the ``main.py`` on line 7 flip make sure ``production = False``
 
