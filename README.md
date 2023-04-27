@@ -53,7 +53,7 @@ Windows: ``python main.py``
 1. Training the Model
   * In the ``main.py`` on line 7 make sure ``production = False``
   * In the ``main.py`` on line 8 flip make sure ``analytics_mode = False``
-  * In the ``main.py`` on line 12 either add or do not add the argument ``lazy_mode=True`` depending on if a full model should be trained
+  * In the ``main.py`` on line 12 either add or do not add the argument ``lazy_mode=False`` depending on if a full model should be trained
 2. Predicting Data
   * In the ``main.py`` on line 8 flip make sure ``analytics_mode = True``
   * In the ``approval_predictions.py`` on line 6 default arguments are presented and can be supplied in the main file when calling to chance the default configuration. Arguments include: production for files to use and save to save predicted results
