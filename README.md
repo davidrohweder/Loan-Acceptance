@@ -4,6 +4,14 @@
 The Loan Acceptance project aims to use AI in order to select which candidates should be approved for a loan & what the loan interest rate should be based on various attributes. This project aims to reduce the bias with a person-to-person meeting that a bank may have towards a particular person and go purely off the numbers in order to make a decision on whether or not the loan request should be approved. 
 
 ## Goals, Envitonment, Adaptation
+### Goals
+The goals are approval or denial based off given data about an applicant as well as an estimate of interest rates.
+
+### Environment
+User demographics, credit history, application data, geographical location, current FED rates and standard industry values. 
+
+### Adaptation
+Augmenting the shape of the algorithm by adding new layers or nodes, changing set interest rates based on data sources, and using human reviews and appeal systems in case an applicant believes the system's decision was incorrect. 
 
 ## Design & Implementation
 
