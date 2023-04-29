@@ -64,6 +64,7 @@ If you have Python version 3.9 or above, the Pickle module does not need to be i
 *How we reccomend*
 1. In the ``\code\`` subdirectory run: ``python -m venv modelEnv``
 2. In the that same directory run: ``modelEnv\Scripts\Activate.ps1``
+3. Now that the virtual environment has been created, I reccomend installing the required libraries
 
 ### Running the application ###
 To run this project, open the terminal from the code subfolder. There, run the following command: 
